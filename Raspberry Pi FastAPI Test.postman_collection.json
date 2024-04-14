@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "68566a8e-dacb-4c43-963f-b3bc94420ba4",
+		"name": "Raspberry Pi FastAPI Test",
+		"description": "Collection of endpoints to test Raspberry Pi FastAPI server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33970239"
+	},
+	"item": [
+		{
+			"name": "Get Live Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/live_data",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"live_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Job and Equipment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"JOB\": \"TEST\", \"EQPT\": \"ABC123\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/update_job_equipment?JOB=PUMP JAM&EQPT=GUK-G-210",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"update_job_equipment"
+					],
+					"query": [
+						{
+							"key": "JOB",
+							"value": "PUMP JAM"
+						},
+						{
+							"key": "EQPT",
+							"value": "GUK-G-210"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sessions by Job ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/sessions",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Session by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/session_by_id/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"session_by_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sessions by Equipment ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/sessions_by_equipment/{equipment_id}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sessions_by_equipment",
+						"{equipment_id}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://192.168.0.106:8000"
+		}
+	]
+}
